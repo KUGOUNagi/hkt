@@ -20,6 +20,13 @@ data = ""
 
 try:
     print("起動中")
+    def worker(word):
+            #print(time.time())
+            file = open("untitled.txt", "w") 
+            file.write(word)
+            #file.close
+            #time.sleep(2)
+    interval = 3
     while True:
         while (data.find("</RECOGOUT>\n.") == -1):
             data += str(client.recv(1024).decode('shift_jis'))
@@ -31,12 +38,13 @@ try:
 
         # 単語を表示
         print("認識結果: " + recog_text)
-        data = ""
         if recog_text=="終了。":
             client.close()
             break
+        #worker(recog_text) 
 
 except:
     print('PROCESS END')
     client.send("DIE".encode('shift_jis'))
     client.close()
+
