@@ -20,13 +20,13 @@ data = ""
 
 try:
     print("起動中")
-    file = open("untitled.txt", "w") 
     def worker(word):
             #print(time.time())
-            with open("untitled.txt", mode='a') as file:
-                file.write('\n')
-                file.write(word)
-                file.close
+            word=b'word'.decode('shift_jis')
+            file = open("untitled.txt",'a')
+            file.write('\n')
+            file.write(word)
+            file.close()
             #time.sleep(2)
     interval = 3
     while True:
@@ -44,7 +44,7 @@ try:
         if recog_text=="終了。":
             client.close()
             break
-        #worker(recog_text) 
+        worker(recog_text) 
 
 except:
     print('PROCESS END')
