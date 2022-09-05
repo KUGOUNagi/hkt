@@ -1,6 +1,7 @@
 import socket
 import time
 import re
+import codecs
 
 #sub.test()
 
@@ -22,7 +23,7 @@ try:
     print("起動中")
     def worker(word):
             #print(time.time())
-            word=b'word'.decode('shift_jis')
+            #word=word.decode('shift_jis')
             file = open("untitled.txt",'a')
             file.write('\n')
             file.write(word)
